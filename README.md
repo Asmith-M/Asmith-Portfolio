@@ -1,12 +1,46 @@
-# React + Vite
+# Asmith Mahendrakar – Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Full Stack Developer | MERN Stack | AI Projects
 
-Currently, two official plugins are available:
+##  About the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This personal portfolio website is developed using React and Next.js (JavaScript). It serves as a professional showcase of my projects, skills, and achievements, featuring a modern light/dark theme toggle for enhanced user experience.
 
-## Expanding the ESLint configuration
+##  Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend:** React (JavaScript), Tailwind CSS, Framer Motion  
+- **Backend & Deployment:** Vercel  
+- **Tools:** GitHub, EmailJS (for secure contact form integration)
+
+##  Features
+
+- Animated and engaging About Me section  
+- Interactive project showcase with refined hover effects  
+- Seamless light/dark theme toggle for user preference  
+- Secure contact form integrated via EmailJS, protected with environment variables  
+- Fully responsive design optimized for both mobile and desktop devices
+
+##  Project Highlights
+
+- **AccessMap** – Smart accessibility navigation application (Ranked Top 30 in IBM Hackathon)  
+- **ClauseIQ** – AI-powered legal clause analysis tool  
+- **TrendWise** – AI-driven SEO blog content generator  
+
+##  Setup Instructions
+
+To run this project locally, follow these steps:
+
+1. Clone the repository: `git clone <repository-url>`  
+2. Install dependencies: `npm install`  
+3. Create a `.env.local` file and add your EmailJS keys securely  
+4. Start the development server: `npm run dev`
+
+##  Deployment
+
+The portfolio is deployed on Vercel, with automatic deployments triggered on every push to the GitHub repository, ensuring the live site is always up to date.
+
+##  Contact
+
+- **Email:** asmithmahendrakar@gmail.com  
+- **LinkedIn:** [LinkedIn Profile](https://linkedin.com/in/yourprofile)  
+- **Portfolio:** [Live Site](https://yourportfolio.com)
