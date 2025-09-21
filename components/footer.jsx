@@ -42,7 +42,7 @@ export function Footer() {
 
   return (
     <footer className="bg-[#2a2a2a] border-t border-[#2a2a2a] relative overflow-hidden">
-      {/* Background decoration */}
+   
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-1/4 w-48 h-48 bg-[#d67c49] rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-[#7fb77e] rounded-full blur-3xl" />
@@ -50,7 +50,7 @@ export function Footer() {
 
       <div className="container mx-auto px-6 py-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
+     
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <ShieldLogo className="w-8 h-8" />
@@ -82,7 +82,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+
           <div>
             <h3 className="text-lg font-semibold font-poppins mb-4">Quick Links</h3>
             <ul className="space-y-2">
@@ -104,7 +104,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+         
           <div>
             <h3 className="text-lg font-semibold font-poppins mb-4">Services</h3>
             <ul className="space-y-2">
@@ -122,7 +122,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+      
         <motion.div
           className="pt-8 border-t border-[#2a2a2a] flex flex-col md:flex-row justify-between items-center gap-4"
           initial={{ opacity: 0, y: 20 }}
@@ -135,14 +135,7 @@ export function Footer() {
             <span>and lots of coffee.</span>
           </div>
 
-          <div className="flex items-center gap-6 text-sm text-[#f8f8f8]/60">
-            <a href="#" className="hover:text-[#d67c49] transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-[#d67c49] transition-colors">
-              Terms of Service
-            </a>
-          </div>
+         
         </motion.div>
       </div>
     </footer>
