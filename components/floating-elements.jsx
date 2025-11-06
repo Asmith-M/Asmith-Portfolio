@@ -30,7 +30,7 @@ export function FloatingElements() {
       {elements.map((element) => (
         <motion.div
           key={element.id}
-          className="absolute rounded-full bg-gradient-to-r from-[#d67c49]/10 to-[#7fb77e]/10 blur-sm"
+          className="absolute rounded-full bg-gradient-to-r from-[#3B82F6]/10 to-[#06B6D4]/10 blur-sm"
           style={{
             width: element.size,
             height: element.size,

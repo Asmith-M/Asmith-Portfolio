@@ -14,7 +14,7 @@ const otherProjects = [
     description: "AI-powered chatbots for customer support and sales, powered by OpenAI and LangChain.",
     tech: ["React", "Node.js", "Express", "MongoDB", "OpenRouter API", "JWT", "Vercel", "Render"],
     icon: MapPin,
-    color: "#7fb77e",
+    color: "#3B82F6",
     size: "large",
     demoUrl: "#",
     githubUrl: "#",
@@ -34,7 +34,7 @@ const otherProjects = [
     description: "Clean, responsive digital signature capture with export functionality and customizable styling.",
     tech: ["React", "HTML5 Canvas", "JavaScript", "CSS3", "Netlify"],
     icon: PenTool,
-    color: "#d67c49",
+    color: "#06B6D4",
     size: "medium",
     demoUrl: "https://ezsignaturepad.netlify.app/",
     githubUrl: "#",
@@ -52,7 +52,7 @@ const otherProjects = [
     description: "Interactive quiz platform for presentations with real-time scoring and audience engagement.",
     tech: ["React", "Next.js", "Tailwind"],
     icon: FileText,
-    color: "#7fb77e",
+    color: "#8B5CF6",
     size: "small",
     demoUrl: "https://pptq-7ue2.vercel.app/",
     githubUrl: "#",
@@ -70,7 +70,7 @@ const otherProjects = [
     description: "AI-powered knowledge management system with intelligent categorization and retrieval.",
     tech: ["React", "FastAPI", "Vector DB", "OpenAI"],
     icon: Zap,
-    color: "#d67c49",
+    color: "#10B981",
     size: "medium",
     isComingSoon: true,
     progress: 65,
@@ -97,11 +97,11 @@ export function OtherProjects() {
   }
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-[#2a2a2a] to-[#1c1c1c] relative overflow-hidden">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-[#0F172A] to-[#0A0A0A] relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/3 left-1/4 w-48 h-48 bg-[#d67c49] rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-[#7fb77e] rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-1/3 left-1/4 w-48 h-48 bg-[#3B82F6] rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-[#8B5CF6] rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -112,7 +112,7 @@ export function OtherProjects() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl lg:text-5xl font-bold font-poppins mb-6">Other Projects</h2>
-          <p className="text-xl text-[#f8f8f8]/80 max-w-2xl mx-auto">
+          <p className="text-xl text-[#F1F5F9]/80 max-w-2xl mx-auto">
             A collection of diverse projects showcasing different skills and creative approaches.
           </p>
         </motion.div>
@@ -150,7 +150,7 @@ export function OtherProjects() {
                 onClick={() => setSelectedProject(project)}
               >
                 <div
-                  className={`relative bg-[#2a2a2a]/50 backdrop-blur-sm rounded-2xl border border-[#2a2a2a] group-hover:border-[#d67c49]/30 transition-all duration-300`}
+                  className={`relative bg-[#1E293B]/50 backdrop-blur-sm rounded-2xl border border-[#1E293B] group-hover:border-[#3B82F6]/30 transition-all duration-300`}
                 >
                   {/* Project Image */}
                   <div className="absolute inset-0">
@@ -164,7 +164,7 @@ export function OtherProjects() {
 
                   {/* Coming Soon Badge */}
                   {project.isComingSoon && (
-                    <div className="absolute top-4 right-4 bg-[#d67c49] text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="absolute top-4 right-4 bg-[#10B981] text-white px-3 py-1 rounded-full text-sm font-medium">
                       Coming Soon
                     </div>
                   )}
@@ -173,9 +173,10 @@ export function OtherProjects() {
                   <div className="relative z-10 p-6 flex flex-col justify-between">
                     <div className="flex items-start justify-between">
                       <div
-                        className={`w-12 h-12 rounded-full bg-[${project.color}]/20 flex items-center justify-center backdrop-blur-sm`}
+                        className="w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-sm"
+                        style={{ backgroundColor: `${project.color}20` }}
                       >
-                        <Icon className={`w-6 h-6 text-[${project.color}]`} />
+                        <Icon className="w-6 h-6" style={{ color: project.color }} />
                       </div>
                     </div>
 
@@ -198,7 +199,7 @@ export function OtherProjects() {
                           </div>
                           <div className="w-full bg-white/20 rounded-full h-2">
                             <div
-                              className="bg-[#d67c49] h-2 rounded-full transition-all duration-300"
+                              className="bg-[#10B981] h-2 rounded-full transition-all duration-300"
                               style={{ width: `${project.progress}%` }}
                             />
                           </div>
@@ -243,7 +244,7 @@ export function OtherProjects() {
           onClick={() => setSelectedProject(null)}
         >
           <motion.div
-            className="bg-[#2a2a2a] rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-[#d67c49]/30"
+            className="bg-[#1E293B] rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-[#3B82F6]/30"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -266,9 +267,10 @@ export function OtherProjects() {
             <div className="p-8">
               <div className="flex items-center gap-4 mb-6">
                 <div
-                  className={`w-16 h-16 rounded-full bg-[${selectedProject.color}]/20 flex items-center justify-center`}
+                  className="w-16 h-16 rounded-full flex items-center justify-center"
+                  style={{ backgroundColor: `${selectedProject.color}20` }}
                 >
-                  <selectedProject.icon className={`w-8 h-8 text-[${selectedProject.color}]`} />
+                  <selectedProject.icon className="w-8 h-8" style={{ color: selectedProject.color }} />
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold font-poppins">{selectedProject.title}</h3>
@@ -278,7 +280,7 @@ export function OtherProjects() {
 
               {selectedProject.isComingSoon ? (
                 <div className="space-y-6">
-                  <div className="bg-gradient-to-r from-[#d67c49]/10 to-[#7fb77e]/10 rounded-xl p-6 border border-[#d67c49]/20">
+                  <div className="bg-gradient-to-r from-[#10B981]/10 to-[#06B6D4]/10 rounded-xl p-6 border border-[#10B981]/20">
                     <h4 className="text-xl font-semibold font-poppins mb-3">Coming Soon</h4>
                     <p className="text-[#f8f8f8]/80 mb-4">{selectedProject.description}</p>
 
@@ -287,9 +289,9 @@ export function OtherProjects() {
                         <span>Development Progress</span>
                         <span>{selectedProject.progress}%</span>
                       </div>
-                      <div className="w-full bg-[#2a2a2a] rounded-full h-3">
+                      <div className="w-full bg-[#1E293B] rounded-full h-3">
                         <div
-                          className="bg-gradient-to-r from-[#d67c49] to-[#7fb77e] h-3 rounded-full transition-all duration-500"
+                          className="bg-gradient-to-r from-[#10B981] to-[#06B6D4] h-3 rounded-full transition-all duration-500"
                           style={{ width: `${selectedProject.progress}%` }}
                         />
                       </div>
@@ -297,15 +299,15 @@ export function OtherProjects() {
 
                     <div className="space-y-3 text-sm text-[#f8f8f8]/70">
                       <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-[#7fb77e] rounded-full" />
+                        <div className="w-2 h-2 bg-[#10B981] rounded-full" />
                         <span>Planning ✓</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-[#d67c49] rounded-full" />
+                        <div className="w-2 h-2 bg-[#06B6D4] rounded-full" />
                         <span>Development (In Progress)</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-[#2a2a2a] rounded-full" />
+                        <div className="w-2 h-2 bg-[#1E293B] rounded-full" />
                         <span>Testing</span>
                       </div>
                     </div>
@@ -318,12 +320,12 @@ export function OtherProjects() {
                           value={emailForNotify}
                           onChange={(e) => setEmailForNotify(e.target.value)}
                           placeholder="your@email.com"
-                          className="flex-1 bg-[#1c1c1c] border border-[#2a2a2a] rounded-lg px-4 py-2 text-white placeholder-[#f8f8f8]/50 focus:border-[#d67c49] focus:outline-none"
+                          className="flex-1 bg-[#0F172A] border border-[#1E293B] rounded-lg px-4 py-2 text-white placeholder-[#F1F5F9]/50 focus:border-[#3B82F6] focus:outline-none"
                           required
                         />
                         <Button
                           type="submit"
-                          className="bg-[#d67c49] hover:bg-[#d67c49]/90 text-white px-6 py-2 rounded-lg font-medium"
+                          className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white px-6 py-2 rounded-lg font-medium"
                         >
                           Notify Me
                         </Button>
@@ -335,17 +337,17 @@ export function OtherProjects() {
                 <div className="space-y-6">
                   <div className="space-y-4">
                     <div>
-                      <h4 className="text-lg font-semibold font-poppins mb-2 text-[#d67c49]">Problem</h4>
+                      <h4 className="text-lg font-semibold font-poppins mb-2 text-[#3B82F6]">Problem</h4>
                       <p className="text-[#f8f8f8]/80 leading-relaxed">{selectedProject.details?.problem}</p>
                     </div>
 
                     <div>
-                      <h4 className="text-lg font-semibold font-poppins mb-2 text-[#7fb77e]">Approach</h4>
+                      <h4 className="text-lg font-semibold font-poppins mb-2 text-[#06B6D4]">Approach</h4>
                       <p className="text-[#f8f8f8]/80 leading-relaxed">{selectedProject.details?.approach}</p>
                     </div>
 
                     <div>
-                      <h4 className="text-lg font-semibold font-poppins mb-2 text-[#d67c49]">Impact</h4>
+                      <h4 className="text-lg font-semibold font-poppins mb-2 text-[#8B5CF6]">Impact</h4>
                       <p className="text-[#f8f8f8]/80 leading-relaxed">{selectedProject.details?.impact}</p>
                     </div>
                   </div>
@@ -355,7 +357,7 @@ export function OtherProjects() {
                       <Badge
                         key={tech}
                         variant="outline"
-                        className="border-[#2a2a2a] bg-[#2a2a2a]/50 text-[#f8f8f8]/80 hover:border-[#d67c49]/50 hover:bg-[#d67c49]/10"
+                        className="border-[#1E293B] bg-[#1E293B]/50 text-[#F1F5F9]/80 hover:border-[#3B82F6]/50 hover:bg-[#3B82F6]/10"
                       >
                         {tech}
                       </Badge>
@@ -365,7 +367,7 @@ export function OtherProjects() {
                   <div className="flex gap-4">
                     {selectedProject.demoUrl && selectedProject.demoUrl !== "#" && (
                       <Button
-                        className="bg-[#d67c49] hover:bg-[#d67c49]/90 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
+                        className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
                         asChild
                       >
                         <a href={selectedProject.demoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
@@ -377,7 +379,7 @@ export function OtherProjects() {
                     {selectedProject.githubUrl && selectedProject.githubUrl !== "#" && (
                       <Button
                         variant="outline"
-                        className="border-[#7fb77e] text-[#7fb77e] hover:bg-[#7fb77e] hover:text-[#1c1c1c] px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 bg-transparent"
+                        className="border-[#06B6D4] text-[#06B6D4] hover:bg-[#06B6D4] hover:text-[#0A0A0A] px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 bg-transparent"
                         asChild
                       >
                         <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">

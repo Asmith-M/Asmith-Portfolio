@@ -4,9 +4,13 @@ export default {
     "./src/**/*.{js,jsx}",
   ],
   safelist: [
-    'from-[#7fb77e]',
-    'to-[#7fb77e]',
-    'from-[#d67c49]',
-    'to-[#d67c49]',
+    'from-[#3B82F6]',
+    'to-[#3B82F6]',
+    'from-[#06B6D4]',
+    'to-[#06B6D4]',
+    'from-[#8B5CF6]',
+    'to-[#8B5CF6]',
+    'from-[#10B981]',
+    'to-[#10B981]',
   ],
 }

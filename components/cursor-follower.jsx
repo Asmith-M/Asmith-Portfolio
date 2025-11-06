@@ -33,7 +33,7 @@ export function CursorFollower() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-6 h-6 bg-[#d67c49]/30 rounded-full pointer-events-none z-50 mix-blend-difference"
+      className="fixed top-0 left-0 w-6 h-6 bg-[#3B82F6]/30 rounded-full pointer-events-none z-50 mix-blend-difference"
       animate={{
         x: mousePosition.x - 12,
         y: mousePosition.y - 12,

@@ -11,7 +11,7 @@ export function Footer() {
       name: "GitHub",
       icon: Github,
       url: "https://github.com/Asmith-M",
-      color: "#f8f8f8",
+      color: "#F1F5F9",
     },
     {
       name: "LinkedIn",
@@ -29,7 +29,7 @@ export function Footer() {
       name: "Email",
       icon: Mail,
       url: "mailto:asmithmahendrakar@gmail.com",
-      color: "#d67c49",
+      color: "#3B82F6",
     },
   ]
 
@@ -41,11 +41,11 @@ export function Footer() {
   ]
 
   return (
-    <footer className="bg-[#2a2a2a] border-t border-[#2a2a2a] relative overflow-hidden">
+    <footer className="bg-[#0F172A] border-t border-[#1E293B] relative overflow-hidden">
    
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-1/4 w-48 h-48 bg-[#d67c49] rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-[#7fb77e] rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-1/4 w-48 h-48 bg-[#3B82F6] rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-[#06B6D4] rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-6 py-12 relative z-10">
@@ -56,7 +56,7 @@ export function Footer() {
               <ShieldLogo className="w-8 h-8" />
               <span className="text-2xl font-bold font-poppins">Asmith Mahendrakar</span>
             </div>
-            <p className="text-[#f8f8f8]/70 leading-relaxed max-w-md">
+            <p className="text-[#F1F5F9]/70 leading-relaxed max-w-md">
               Freelance developer specializing in AI-powered applications and modern web solutions. Turning complex
               problems into elegant, user-friendly experiences.
             </p>
@@ -69,13 +69,13 @@ export function Footer() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-[#1c1c1c]/50 backdrop-blur-sm rounded-full flex items-center justify-center border border-[#2a2a2a] hover:border-[#d67c49]/30 transition-all duration-300 group"
+                    className="w-10 h-10 bg-[#0A0A0A]/50 backdrop-blur-sm rounded-full flex items-center justify-center border border-[#1E293B] hover:border-[#3B82F6]/30 transition-all duration-300 group"
                     whileHover={{ scale: 1.1, y: -2 }}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                    <Icon className="w-4 h-4 text-[#f8f8f8]/70 group-hover:text-[#d67c49] transition-colors" />
+                    <Icon className="w-4 h-4 text-[#F1F5F9]/70 group-hover:text-[#3B82F6] transition-colors" />
                   </motion.a>
                 )
               })}
@@ -95,7 +95,7 @@ export function Footer() {
                 >
                   <a
                     href={link.href}
-                    className="text-[#f8f8f8]/70 hover:text-[#d67c49] transition-colors duration-200 hover:translate-x-1 inline-block"
+                    className="text-[#F1F5F9]/70 hover:text-[#3B82F6] transition-colors duration-200 hover:translate-x-1 inline-block"
                   >
                     {link.name}
                   </a>
@@ -124,14 +124,14 @@ export function Footer() {
 
       
         <motion.div
-          className="pt-8 border-t border-[#2a2a2a] flex flex-col md:flex-row justify-between items-center gap-4"
+          className="pt-8 border-t border-[#1E293B] flex flex-col md:flex-row justify-between items-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <div className="flex items-center gap-2 text-[#f8f8f8]/60">
             <span>© {currentYear} Asmith Mahendrakar. Made with</span>
-            <Heart className="w-4 h-4 text-[#d67c49] fill-current" />
+            <Heart className="w-4 h-4 text-[#3B82F6] fill-current" />
             <span>and lots of coffee.</span>
           </div>
 

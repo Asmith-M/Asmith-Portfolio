@@ -139,11 +139,11 @@ export function ContactSection() {
     <section
       id="contact"
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-[#1c1c1c] to-[#2a2a2a] relative overflow-hidden"
+      className="py-20 bg-gradient-to-b from-[#0A0A0A] to-[#0F172A] relative overflow-hidden"
     >
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-[#d67c49] rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-[#7fb77e] rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-[#3B82F6] rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-[#8B5CF6] rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -176,11 +176,11 @@ export function ContactSection() {
 
             <div className="space-y-6">
               <motion.div
-                className="flex items-center gap-4 p-4 bg-[#2a2a2a]/50 backdrop-blur-sm rounded-xl border border-[#2a2a2a] hover:border-[#d67c49]/30 transition-all duration-300"
+                className="flex items-center gap-4 p-4 bg-[#1E293B]/50 backdrop-blur-sm rounded-xl border border-[#1E293B] hover:border-[#3B82F6]/30 transition-all duration-300"
                 whileHover={{ scale: 1.02, x: 5 }}
               >
-                <div className="w-12 h-12 bg-[#d67c49]/20 rounded-full flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-[#d67c49]" />
+                <div className="w-12 h-12 bg-[#3B82F6]/20 rounded-full flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-[#3B82F6]" />
                 </div>
                 <div>
                   <h4 className="font-semibold">Email</h4>
@@ -189,11 +189,11 @@ export function ContactSection() {
               </motion.div>
 
               <motion.div
-                className="flex items-center gap-4 p-4 bg-[#2a2a2a]/50 backdrop-blur-sm rounded-xl border border-[#2a2a2a] hover:border-[#7fb77e]/30 transition-all duration-300"
+                className="flex items-center gap-4 p-4 bg-[#1E293B]/50 backdrop-blur-sm rounded-xl border border-[#1E293B] hover:border-[#06B6D4]/30 transition-all duration-300"
                 whileHover={{ scale: 1.02, x: 5 }}
               >
-                <div className="w-12 h-12 bg-[#7fb77e]/20 rounded-full flex items-center justify-center">
-                  <MessageSquare className="w-6 h-6 text-[#7fb77e]" />
+                <div className="w-12 h-12 bg-[#06B6D4]/20 rounded-full flex items-center justify-center">
+                  <MessageSquare className="w-6 h-6 text-[#06B6D4]" />
                 </div>
                 <div>
                   <h4 className="font-semibold">Response Time</h4>
@@ -213,13 +213,13 @@ export function ContactSection() {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-[#2a2a2a]/50 backdrop-blur-sm rounded-full flex items-center justify-center border border-[#2a2a2a] hover:border-[#d67c49]/30 transition-all duration-300 group"
+                      className="w-12 h-12 bg-[#1E293B]/50 backdrop-blur-sm rounded-full flex items-center justify-center border border-[#1E293B] hover:border-[#3B82F6]/30 transition-all duration-300 group"
                       initial={{ opacity: 0, y: 20 }}
                       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                       transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                       whileHover={{ scale: 1.1, y: -2 }}
                     >
-                      <Icon className="w-5 h-5 text-[#f8f8f8]/70 group-hover:text-[#d67c49] transition-colors" />
+                      <Icon className="w-5 h-5 text-[#F1F5F9]/70 group-hover:text-[#3B82F6] transition-colors" />
                     </motion.a>
                   )
                 })}
@@ -247,8 +247,8 @@ export function ContactSection() {
                     required
                     minLength={2}
                     maxLength={50}
-                    className={`w-full bg-[#2a2a2a]/50 backdrop-blur-sm border rounded-xl px-4 py-3 text-white placeholder-[#f8f8f8]/50 focus:outline-none transition-colors ${
-                      errors.name ? 'border-red-500 focus:border-red-500' : 'border-[#2a2a2a] focus:border-[#d67c49]'
+                    className={`w-full bg-[#1E293B]/50 backdrop-blur-sm border rounded-xl px-4 py-3 text-white placeholder-[#F1F5F9]/50 focus:outline-none transition-colors ${
+                      errors.name ? 'border-red-500 focus:border-red-500' : 'border-[#1E293B] focus:border-[#3B82F6]'
                     }`}
                     placeholder="Your name"
                   />
@@ -267,8 +267,8 @@ export function ContactSection() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className={`w-full bg-[#2a2a2a]/50 backdrop-blur-sm border rounded-xl px-4 py-3 text-white placeholder-[#f8f8f8]/50 focus:outline-none transition-colors ${
-                      errors.email ? 'border-red-500 focus:border-red-500' : 'border-[#2a2a2a] focus:border-[#d67c49]'
+                    className={`w-full bg-[#1E293B]/50 backdrop-blur-sm border rounded-xl px-4 py-3 text-white placeholder-[#F1F5F9]/50 focus:outline-none transition-colors ${
+                      errors.email ? 'border-red-500 focus:border-red-500' : 'border-[#1E293B] focus:border-[#3B82F6]'
                     }`}
                     placeholder="your@email.com"
                   />
@@ -291,8 +291,8 @@ export function ContactSection() {
                   required
                   minLength={5}
                   maxLength={100}
-                  className={`w-full bg-[#2a2a2a]/50 backdrop-blur-sm border rounded-xl px-4 py-3 text-white placeholder-[#f8f8f8]/50 focus:outline-none transition-colors ${
-                    errors.subject ? 'border-red-500 focus:border-red-500' : 'border-[#2a2a2a] focus:border-[#d67c49]'
+                  className={`w-full bg-[#1E293B]/50 backdrop-blur-sm border rounded-xl px-4 py-3 text-white placeholder-[#F1F5F9]/50 focus:outline-none transition-colors ${
+                    errors.subject ? 'border-red-500 focus:border-red-500' : 'border-[#1E293B] focus:border-[#3B82F6]'
                   }`}
                   placeholder="What's this about?"
                 />
@@ -314,15 +314,15 @@ export function ContactSection() {
                   rows={6}
                   minLength={10}
                   maxLength={1000}
-                  className={`w-full bg-[#2a2a2a]/50 backdrop-blur-sm border rounded-xl px-4 py-3 text-white placeholder-[#f8f8f8]/50 focus:outline-none transition-colors resize-none ${
-                    errors.message ? 'border-red-500 focus:border-red-500' : 'border-[#2a2a2a] focus:border-[#d67c49]'
+                  className={`w-full bg-[#1E293B]/50 backdrop-blur-sm border rounded-xl px-4 py-3 text-white placeholder-[#F1F5F9]/50 focus:outline-none transition-colors resize-none ${
+                    errors.message ? 'border-red-500 focus:border-red-500' : 'border-[#1E293B] focus:border-[#3B82F6]'
                   }`}
                   placeholder="Tell me about your project or idea..."
                 />
                 {errors.message && (
                   <p className="text-red-400 text-sm mt-1">{errors.message}</p>
                 )}
-                <p className="text-[#f8f8f8]/50 text-sm mt-1">
+                <p className="text-[#F1F5F9]/50 text-sm mt-1">
                   {formData.message.length}/1000 characters
                 </p>
               </div>
@@ -330,7 +330,7 @@ export function ContactSection() {
               <Button
                 type="submit"
                 disabled={isSubmitting || isSubmitted}
-                className="w-full bg-gradient-to-r from-[#d67c49] to-[#d67c49]/90 hover:from-[#d67c49]/90 hover:to-[#d67c49] text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="w-full bg-gradient-to-r from-[#3B82F6] to-[#3B82F6]/90 hover:from-[#3B82F6]/90 hover:to-[#3B82F6] text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 {isSubmitting ? (
                   <div className="flex items-center justify-center gap-2">
@@ -358,9 +358,9 @@ export function ContactSection() {
         position="top-right"
         toastOptions={{
           style: {
-            background: '#2a2a2a',
-            color: '#f8f8f8',
-            border: '1px solid #d67c49',
+            background: '#1E293B',
+            color: '#F1F5F9',
+            border: '1px solid #3B82F6',
           },
         }}
       />

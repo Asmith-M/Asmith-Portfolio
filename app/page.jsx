@@ -6,10 +6,8 @@ import { OtherProjects } from "@/components/other-projects"
 import { SkillsSection } from "@/components/skills-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
-import { SampleClauseWidget } from "@/components/sample-clause-widget"
 import { SmoothScroll } from "@/components/smooth-scroll"
 import { ScrollProgress } from "@/components/scroll-progress"
-import { CursorFollower } from "@/components/cursor-follower"
 import { FloatingElements } from "@/components/floating-elements"
 
 export default function HomePage() {
@@ -18,7 +16,6 @@ export default function HomePage() {
       <FloatingElements />
       <ScrollProgress />
       <SmoothScroll />
-      <CursorFollower />
       <Header />
       <main>
         <HeroSection />
@@ -29,7 +26,6 @@ export default function HomePage() {
         <ContactSection />
       </main>
       <Footer />
-      <SampleClauseWidget />
     </div>
   )
 }

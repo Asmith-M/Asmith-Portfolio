@@ -12,7 +12,6 @@ import { OtherProjects } from "../components/other-projects"
 import { SkillsSection } from "../components/skills-section"
 import { ContactSection } from "../components/contact-section"
 import { Footer } from "../components/footer"
-import { SampleClauseWidget } from "../components/sample-clause-widget"
 
 export default function App() {
   return (
@@ -32,7 +31,6 @@ export default function App() {
           <ContactSection />
         </main>
         <Footer />
-        <SampleClauseWidget />
       </div>
     </ThemeProvider>
   )

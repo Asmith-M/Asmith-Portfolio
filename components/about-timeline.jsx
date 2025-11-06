@@ -7,37 +7,37 @@ const timelineEvents = [
   {
     icon: GraduationCap,
     title: "Started CS Journey",
-    description: "Began exploring programming with Python and discovered the power of automation.",
+    description: "Began exploring programming with Python and discovered the power of automation and web development.",
     year: "2023",
-    color: "#7fb77e",
-  },
-  {
-    icon: Lightbulb,
-    title: "First AI Project",
-    description: "Built my first machine learning model for text classification, sparking my passion for AI.",
-    year: "2024",
-    color: "#d67c49",
-  },
-  {
-    icon: Trophy,
-    title: "Full Stack Developement",
-    description: "Mastered React, Next.js, and FastAPI while building TrendWise and SmartChat applications.",
-    year: "2024",
-    color: "#7fb77e",
+    color: "#10B981",
   },
   {
     icon: Code,
+    title: "Full Stack Development",
+    description: "Built production-ready applications with React, Next.js, and FastAPI. Deployed scalable solutions like TrendWise and SmartChat with real user impact.",
+    year: "2024",
+    color: "#3B82F6",
+  },
+  {
+    icon: Lightbulb,
+    title: "AI Integration & Modern APIs",
+    description: "Enhanced applications with AI capabilities using OpenAI, LangChain, and RESTful APIs. Focused on practical integration over theoretical ML.",
+    year: "2024",
+    color: "#06B6D4",
+  },
+  {
+    icon: Trophy,
     title: "IBM Hackathon Participant",
     description: "Created AccessMap - AI-enhanced accessibility mapping tool, recognized at IBM showcase.",
     year: "2025",
-    color: "#d67c49",
+    color: "#8B5CF6",
   },
   {
     icon: Rocket,
     title: "Chairperson – Technova (College Technical Festival)",
     description: "Led a team of 70+ members to organize a college-wide technical fest with 1800+ participants.",
     year: "2025",
-    color: "#7fb77e",
+    color: "#10B981",
   },
 ]
 
@@ -71,10 +71,10 @@ export function AboutTimeline() {
   }
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-[#1c1c1c] to-[#2a2a2a] relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 left-10 w-32 h-32 bg-[#d67c49] rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-10 w-48 h-48 bg-[#7fb77e] rounded-full blur-3xl" />
+    <section id="about" className="py-20 bg-gradient-to-b from-[#0A0A0A] to-[#0F172A] relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-1/4 left-10 w-32 h-32 bg-[#3B82F6] rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-10 w-48 h-48 bg-[#8B5CF6] rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -85,16 +85,16 @@ export function AboutTimeline() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl lg:text-5xl font-bold font-poppins mb-6">My Journey</h2>
-          <p className="text-xl text-[#f8f8f8]/80 max-w-2xl mx-auto">
-            From curious beginner to AI developer, here's how I've grown through challenges and discoveries.
+          <p className="text-xl text-[#F1F5F9]/80 max-w-2xl mx-auto">
+            From curious beginner to versatile full-stack developer, here's how I've grown through real-world projects and technical challenges.
           </p>
         </motion.div>
 
         <div ref={timelineRef} className="relative max-w-4xl mx-auto">
-          <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#d67c49] via-[#7fb77e] to-[#d67c49] opacity-30" />
+          <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#3B82F6] via-[#06B6D4] to-[#8B5CF6] opacity-30" />
 
           <motion.div
-            className="absolute left-8 top-0 w-1 bg-gradient-to-b from-[#d67c49] to-[#7fb77e]"
+            className="absolute left-8 top-0 w-1 bg-gradient-to-b from-[#3B82F6] via-[#06B6D4] to-[#8B5CF6]"
             initial={{ height: 0 }}
             animate={{
               height: `${((activeIndex + 1) / timelineEvents.length) * 100}%`,
@@ -120,23 +120,25 @@ export function AboutTimeline() {
                   <motion.div
                     className={`relative z-10 w-16 h-16 rounded-full flex items-center justify-center border-4 transition-all duration-300 ${
                       isActive
-                        ? `bg-[${event.color}] border-[${event.color}] shadow-lg shadow-[${event.color}]/25`
-                        : "bg-[#2a2a2a] border-[#2a2a2a]"
+                        ? "border-current shadow-lg"
+                        : "bg-[#1E293B] border-[#1E293B]"
                     }`}
+                    style={isActive ? { backgroundColor: event.color, borderColor: event.color, boxShadow: `0 0 30px ${event.color}40` } : {}}
                     animate={{
                       scale: isCurrent ? 1.2 : 1,
                       boxShadow: isCurrent ? `0 0 30px ${event.color}40` : "none",
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Icon className={`w-8 h-8 ${isActive ? "text-white" : "text-[#f8f8f8]/50"}`} />
+                    <Icon className={`w-8 h-8 ${isActive ? "text-white" : "text-[#F1F5F9]/50"}`} />
                   </motion.div>
 
                   {/* Event content */}
                   <motion.div
-                    className={`flex-1 bg-[#2a2a2a]/50 backdrop-blur-sm rounded-xl p-6 border transition-all duration-300 ${
-                      isActive ? "border-[#d67c49]/30 shadow-lg" : "border-[#2a2a2a]"
+                    className={`flex-1 bg-[#1E293B]/50 backdrop-blur-sm rounded-xl p-6 border transition-all duration-300 ${
+                      isActive ? "shadow-lg" : "border-[#1E293B]"
                     }`}
+                    style={isActive ? { borderColor: `${event.color}40` } : {}}
                     animate={{
                       scale: isCurrent ? 1.05 : 1,
                       y: isCurrent ? -5 : 0,
@@ -147,13 +149,14 @@ export function AboutTimeline() {
                       <h3 className="text-xl font-bold font-poppins">{event.title}</h3>
                       <span
                         className={`px-3 py-1 rounded-full text-sm font-medium ${
-                          isActive ? `bg-[${event.color}]/20 text-[${event.color}]` : "bg-[#2a2a2a] text-[#f8f8f8]/50"
+                          isActive ? "" : "bg-[#1E293B] text-[#F1F5F9]/50"
                         }`}
+                        style={isActive ? { backgroundColor: `${event.color}20`, color: event.color } : {}}
                       >
                         {event.year}
                       </span>
                     </div>
-                    <p className={`text-[#f8f8f8]/80 leading-relaxed ${isActive ? "opacity-100" : "opacity-50"}`}>
+                    <p className={`text-[#F1F5F9]/80 leading-relaxed ${isActive ? "opacity-100" : "opacity-50"}`}>
                       {event.description}
                     </p>
                   </motion.div>
@@ -169,19 +172,18 @@ export function AboutTimeline() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <div className="bg-gradient-to-r from-[#d67c49]/10 to-[#7fb77e]/10 rounded-2xl p-8 border border-[#d67c49]/20 max-w-2xl mx-auto">
+          <div className="bg-gradient-to-r from-[#3B82F6]/10 to-[#06B6D4]/10 rounded-2xl p-8 border border-[#3B82F6]/20 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold font-poppins mb-4">Ready for the Next Chapter</h3>
-            <p className="text-[#f8f8f8]/80 mb-6">
-              I'm excited to bring my AI expertise and full-stack skills to your next project. Let's build something
-              amazing together.
+            <p className="text-[#F1F5F9]/80 mb-6">
+              I bring versatile full-stack development skills, modern web technologies expertise, and practical AI integration experience. Let's build something impactful together.
             </p>
             <Button
               onClick={scrollToContact}
-              className="bg-[#d67c49] hover:bg-[#d67c49]/90 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
+              className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-[#3B82F6]/40"
             >
               Open to Freelance — Contact Me
             </Button>
-            <p className="text-sm text-[#f8f8f8]/60 mt-3">I usually reply within 48 hours</p>
+            <p className="text-sm text-[#F1F5F9]/60 mt-3">I usually reply within 48 hours</p>
           </div>
         </motion.div>
       </div>

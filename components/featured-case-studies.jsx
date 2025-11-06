@@ -17,7 +17,7 @@ const caseStudies = [
     demoUrl: "https://clause-iq.vercel.app/",
     githubUrl: "https://github.com/Asmith-M/ClauseIQ",
     icon: Zap,
-    color: "#d67c49",
+    color: "#3B82F6",
     image: "/ClauseIQ.png",
   },
   {
@@ -31,7 +31,7 @@ const caseStudies = [
     demoUrl: "https://trend-wise-nu.vercel.app",
     githubUrl: "https://github.com/Asmith-M/TrendWise",
     icon: TrendingUp,
-    color: "#7fb77e",
+    color: "#06B6D4",
     image: "/Trendwise.png",
   },
   {
@@ -47,7 +47,7 @@ const caseStudies = [
     demoUrl: "#",
     githubUrl: "https://github.com/0Ankit0-0/Access-Map0",
     icon: MapPin,
-    color: "#7fb77e",
+    color: "#8B5CF6",
     image: "/AccessMap.png",
   },
 ]
@@ -57,10 +57,10 @@ export function FeaturedCaseStudies() {
   const isInView = useInView(sectionRef, { once: false, amount: 0.2 })
 
   return (
-    <section id="work" ref={sectionRef} className="py-20 bg-[#1c1c1c] relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-[#7fb77e] rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#d67c49] rounded-full blur-3xl" />
+    <section id="work" ref={sectionRef} className="py-20 bg-[#0A0A0A] relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute top-20 right-20 w-64 h-64 bg-[#06B6D4] rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#8B5CF6] rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -71,7 +71,7 @@ export function FeaturedCaseStudies() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl lg:text-5xl font-bold font-poppins mb-6">Featured Case Studies</h2>
-          <p className="text-xl text-[#f8f8f8]/80 max-w-2xl mx-auto">
+          <p className="text-xl text-[#F1F5F9]/80 max-w-2xl mx-auto">
             Deep dives into my most impactful projects, showcasing AI innovation and full-stack expertise.
           </p>
         </motion.div>
@@ -95,8 +95,8 @@ export function FeaturedCaseStudies() {
                   transition={{ duration: 0.3 }}
                 >
                   <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#d67c49]/20 to-[#7fb77e]/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-                    <div className="relative bg-[#2a2a2a]/50 backdrop-blur-sm rounded-2xl p-4 border border-[#2a2a2a] group-hover:border-[#d67c49]/30 transition-all duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#3B82F6]/20 to-[#06B6D4]/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                    <div className="relative bg-[#1E293B]/50 backdrop-blur-sm rounded-2xl p-4 border border-[#1E293B] group-hover:border-[#3B82F6]/30 transition-all duration-300">
                       <img
                         src={study.image || "/placeholder.svg"}
                         alt={`${study.title} screenshot`}
@@ -105,7 +105,7 @@ export function FeaturedCaseStudies() {
                       <div className="absolute inset-4 bg-gradient-to-t from-black/50 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                         <div className="p-4">
                           <div className="flex gap-2">
-                            <Button size="sm" className="bg-[#d67c49] hover:bg-[#d67c49]/90 text-white" asChild>
+                            <Button size="sm" className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white" asChild>
                               <a href={study.demoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
                                 <ExternalLink className="w-4 h-4 mr-1" />
                                 Live Demo
@@ -114,7 +114,7 @@ export function FeaturedCaseStudies() {
                             <Button
                               size="sm"
                               variant="outline"
-                              className="border-[#7fb77e] text-[#7fb77e] hover:bg-[#7fb77e] hover:text-[#1c1c1c] bg-transparent"
+                              className="border-[#06B6D4] text-[#06B6D4] hover:bg-[#06B6D4] hover:text-[#0A0A0A] bg-transparent"
                               asChild
                             >
                               <a href={study.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
@@ -141,20 +141,20 @@ export function FeaturedCaseStudies() {
                     </div>
                   </div>
 
-                  <div className="space-y-6">
+                <div className="space-y-6">
                     <div>
-                      <h4 className="text-lg font-semibold font-poppins mb-2 text-[#d67c49]">Problem</h4>
-                      <p className="text-[#f8f8f8]/80 leading-relaxed">{study.problem}</p>
+                      <h4 className="text-lg font-semibold font-poppins mb-2 text-[#3B82F6]">Problem</h4>
+                      <p className="text-[#F1F5F9]/80 leading-relaxed">{study.problem}</p>
                     </div>
 
                     <div>
-                      <h4 className="text-lg font-semibold font-poppins mb-2 text-[#7fb77e]">Approach</h4>
-                      <p className="text-[#f8f8f8]/80 leading-relaxed">{study.approach}</p>
+                      <h4 className="text-lg font-semibold font-poppins mb-2 text-[#06B6D4]">Approach</h4>
+                      <p className="text-[#F1F5F9]/80 leading-relaxed">{study.approach}</p>
                     </div>
 
                     <div>
-                      <h4 className="text-lg font-semibold font-poppins mb-2 text-[#d67c49]">Impact</h4>
-                      <p className="text-[#f8f8f8]/80 leading-relaxed">{study.impact}</p>
+                      <h4 className="text-lg font-semibold font-poppins mb-2 text-[#8B5CF6]">Impact</h4>
+                      <p className="text-[#F1F5F9]/80 leading-relaxed">{study.impact}</p>
                     </div>
                   </div>
 
@@ -163,7 +163,7 @@ export function FeaturedCaseStudies() {
                       <Badge
                         key={tech}
                         variant="outline"
-                        className="border-[#2a2a2a] bg-[#2a2a2a]/50 text-[#f8f8f8]/80 hover:border-[#d67c49]/50 hover:bg-[#d67c49]/10"
+                        className="border-[#1E293B] bg-[#1E293B]/50 text-[#F1F5F9]/80 hover:border-[#3B82F6]/50 hover:bg-[#3B82F6]/10"
                       >
                         {tech}
                       </Badge>
@@ -172,7 +172,7 @@ export function FeaturedCaseStudies() {
 
                   <div className="flex gap-4 items-center">
                     <Button
-                      className="bg-[#d67c49] hover:bg-[#d67c49]/90 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 flex items-center"
+                      className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-[#3B82F6]/40 flex items-center"
                       asChild
                     >
                       <a href={study.demoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
@@ -182,7 +182,7 @@ export function FeaturedCaseStudies() {
                     </Button>
                     <Button
                       variant="outline"
-                      className="border-[#7fb77e] text-[#7fb77e] hover:bg-[#7fb77e] hover:text-[#1c1c1c] px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 bg-transparent flex items-center"
+                      className="border-[#06B6D4] text-[#06B6D4] hover:bg-[#06B6D4] hover:text-[#0A0A0A] px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 bg-transparent flex items-center"
                       asChild
                     >
                       <a href={study.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
