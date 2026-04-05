@@ -1,201 +1,227 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { ExternalLink, Github, Zap, TrendingUp, MapPin } from "lucide-react"
-import { Button } from "../components/ui/button"
-import { Badge } from "../components/ui/badge"
+import { ExternalLink, Github, Lock } from "lucide-react"
 
 const caseStudies = [
   {
+    id: "aura",
+    number: "01",
+    title: "AURA",
+    subtitle: "Federated Learning Security System",
+    problem:
+      "Federated learning has a trust problem. Any hospital in the network could send poisoned model weights. Nobody would know until it was too late.",
+    approach:
+      "Built a Trust-as-a-Service security layer. Behavioral fingerprinting using 9-dimensional SHAP vectors, scored by Isolation Forest with a 0.72 anomaly threshold. Every verdict sealed to a blockchain-anchored audit trail via SHA-256 weight hashing.",
+    impact:
+      "Tamper-proof verdict records. SHAP evidence reports for rejected models. Academic project   deploy-ready architecture.",
+    tech: ["PyTorch", "SHAP", "Isolation Forest", "Blockchain", "Python", "FastAPI"],
+    githubUrl: "#",
+    demoUrl: null,
+  },
+  {
+    id: "noetic-vault",
+    number: "02",
+    title: "Noetic Vault / DocAI",
+    subtitle: "Offline RAG System",
+    problem:
+      "Every document AI tool sends your data somewhere. What if you want the intelligence without the surveillance?",
+    approach:
+      "Fully offline RAG pipeline. Local LLMs via Ollama/Mistral, no API calls, no data leaves your machine. Built accuracy scoring to research hallucination reduction via retrieval augmentation.",
+    impact:
+      "Presented at Avishkar State Research Competition. Real reduction in hallucination rates measurable through retrieval accuracy scores.",
+    tech: ["Ollama", "Mistral", "LlamaIndex", "Python", "FastAPI", "SQLite"],
+    githubUrl: "https://github.com/Asmith-M/Noetic-Vault",
+    demoUrl: null,
+  },
+  {
     id: "clauseiq",
+    number: "03",
     title: "ClauseIQ",
     subtitle: "AI Legal Document Analysis",
-    problem: "Contracts are dense, and non-experts miss critical clauses.",
+    problem:
+      "Legal contracts are dense by design. Non-experts miss critical clauses. Lawyers are expensive.",
     approach:
-      "Built a FastAPI + React pipeline using PyMuPDF for extraction and Mistral via OpenRouter for clause classification and plain-English explanation. Added multi-agent verification and risk scoring.",
-    impact: "~5s average analysis time; user-facing demo at clause-iq.vercel.app.",
-    tech: ["React", "FastAPI", "PyMuPDF", "OpenRouter", "Tailwind", "Vercel", "Render"],
-    demoUrl: "https://clause-iq.vercel.app/",
+      "Multi-agent verification pipeline. Three agents cross-check clause extraction to reduce false positives by 25% vs single-model baseline.",
+    impact:
+      "95% clause extraction accuracy. 500+ test documents. Processes 50-page contracts in under 10 seconds. Live.",
+    tech: ["React", "FastAPI", "PyMuPDF", "OpenRouter", "Mistral", "Vercel"],
     githubUrl: "https://github.com/Asmith-M/ClauseIQ",
-    icon: Zap,
-    color: "#3B82F6",
-    image: "/ClauseIQ.png",
+    demoUrl: "https://clause-iq.vercel.app/",
   },
   {
     id: "trendwise",
+    number: "04",
     title: "TrendWise",
     subtitle: "AI SEO Blog Generator",
-    problem: "Content creators struggle to consistently generate SEO-friendly posts.",
-    approach: "Next.js app with OpenRouter for AI generation, MongoDB persistence, and NextAuth Google OAuth.",
-    impact: "Generates SEO-ready drafts instantly; live demo at trend-wise-nu.vercel.app.",
-    tech: ["Next.js", "Tailwind", "MongoDB", "OpenRouter", "Vercel"],
-    demoUrl: "https://trend-wise-nu.vercel.app",
+    problem:
+      "Content creators struggle to consistently generate SEO-friendly posts at scale.",
+    approach:
+      "Next.js app with OpenRouter for AI generation, MongoDB persistence, and NextAuth Google OAuth. Semantic keyword injection via prompt engineering.",
+    impact:
+      "Generates SEO-ready drafts instantly. Live at trend-wise-nu.vercel.app.",
+    tech: ["Next.js", "MongoDB", "OpenRouter", "NextAuth", "Tailwind", "Vercel"],
     githubUrl: "https://github.com/Asmith-M/TrendWise",
-    icon: TrendingUp,
-    color: "#06B6D4",
-    image: "/Trendwise.png",
+    demoUrl: "https://trend-wise-nu.vercel.app",
   },
   {
     id: "accessmap",
+    number: "05",
     title: "AccessMap",
-    subtitle: "Accessibility-Focused Navigation",
-    problem: "Urban navigation is challenging for differently-abled users due to lack of accessibility information.",
+    subtitle: "Accessibility Navigation Tool",
+    problem:
+      "Urban navigation is challenging for differently-abled users due to near-total absence of accessibility data in standard mapping tools.",
     approach:
-      "Participated in IBM Hackathon – developed an accessibility-focused map application to improve urban navigation for differently-abled users.",
+      "Built for IBM Hackathon   accessibility-focused navigation application with real-time barrier tagging and routing for 150+ pilot users across Mumbai.",
     impact:
-      "Enhanced navigation experience with accessibility features and barrier identification for inclusive urban mobility.",
+      "Top 30 of 300+ teams statewide. Enhanced inclusive urban mobility for pilot users.",
     tech: ["React", "Node.js", "Google Maps API", "MongoDB", "Express"],
-    demoUrl: "#",
     githubUrl: "https://github.com/0Ankit0-0/Access-Map0",
-    icon: MapPin,
-    color: "#8B5CF6",
-    image: "/AccessMap.png",
+    demoUrl: null,
+  },
+  {
+    id: "frms",
+    number: "06",
+    title: "FRMS @ NStechX",
+    subtitle: "Fraud Risk Management System",
+    problem:
+      "Need for automated fraud detection across UPI, IMPS, and ATM transaction channels with real-time reconciliation reporting.",
+    approach:
+      "Built solo during internship   complete fraud scoring pipeline, reconciliation engine, frontend dashboard. Architected UPI, IMPS, ATM recon prototypes.",
+    impact:
+      "Presented to banking stakeholders. Production-informed architecture. NDA   architecture discussion available on request.",
+    tech: ["FastAPI", "Python", "Node.js", "SQL", "AWS", "UPI APIs"],
+    githubUrl: null,
+    demoUrl: null,
+    isPrivate: true,
   },
 ]
 
-export function FeaturedCaseStudies() {
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: false, amount: 0.2 })
+function CaseStudyCard({ study, index }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.12 })
 
   return (
-    <section id="work" ref={sectionRef} className="py-20 bg-[#0A0A0A] relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-[#06B6D4] rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#8B5CF6] rounded-full blur-3xl" />
-      </div>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 32 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.08 }}
+      className="group relative border-l-4 border-l-[#64FFDA] bg-[#161B27] border border-[#233554] rounded-[4px] p-6 overflow-hidden hover:border-[#64FFDA]/50 hover:bg-[#64FFDA]/[0.02] transition-all duration-200"
+      style={{ borderLeft: "4px solid #64FFDA" }}
+    >
+      {/* Faded watermark number */}
+      <span
+        aria-hidden="true"
+        className="absolute top-2 right-4 font-bold font-poppins leading-none select-none pointer-events-none"
+        style={{ fontSize: "160px", color: "#64FFDA", opacity: 0.04, lineHeight: 1 }}
+      >
+        {study.number}
+      </span>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-4xl lg:text-5xl font-bold font-poppins mb-6">Featured Case Studies</h2>
-          <p className="text-xl text-[#F1F5F9]/80 max-w-2xl mx-auto">
-            Deep dives into my most impactful projects, showcasing AI innovation and full-stack expertise.
-          </p>
-        </motion.div>
-
-        <div className="space-y-32">
-          {caseStudies.map((study, index) => {
-            const Icon = study.icon
-            const isEven = index % 2 === 0
-
-            return (
-              <motion.div
-                key={study.id}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${isEven ? "" : "lg:grid-flow-col-dense"}`}
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+      <div className="relative z-10">
+        {/* Title row */}
+        <div className="flex items-start justify-between gap-4 mb-1 flex-wrap">
+          <div>
+            <div className="flex items-center gap-2 flex-wrap">
+              <h3 className="text-xl font-bold font-poppins text-[#CCD6F6]">
+                {study.title}
+              </h3>
+              {study.isPrivate && (
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 border border-[#64FFDA]/30 text-[#64FFDA] text-xs font-jetbrains-mono rounded-[4px]">
+                  <Lock className="w-2.5 h-2.5" />
+                  NDA
+                </span>
+              )}
+            </div>
+            <p className="text-[#495670] font-jetbrains-mono text-xs mt-0.5">
+              {study.subtitle}
+            </p>
+          </div>
+          <div className="flex items-center gap-3 shrink-0">
+            {study.demoUrl && (
+              <a
+                href={study.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#8892B0] hover:text-[#64FFDA] transition-colors duration-200"
+                aria-label={`${study.title} live demo`}
               >
-                <motion.div
-                  className={`relative ${isEven ? "" : "lg:col-start-2"}`}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#3B82F6]/20 to-[#06B6D4]/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-                    <div className="relative bg-[#1E293B]/50 backdrop-blur-sm rounded-2xl p-4 border border-[#1E293B] group-hover:border-[#3B82F6]/30 transition-all duration-300">
-                      <img
-                        src={study.image || "/placeholder.svg"}
-                        alt={`${study.title} screenshot`}
-                        className="w-full h-64 lg:h-80 object-cover rounded-xl"
-                      />
-                      <div className="absolute inset-4 bg-gradient-to-t from-black/50 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                        <div className="p-4">
-                          <div className="flex gap-2">
-                            <Button size="sm" className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white" asChild>
-                              <a href={study.demoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                                <ExternalLink className="w-4 h-4 mr-1" />
-                                Live Demo
-                              </a>
-                            </Button>
-                            <Button
-                              size="sm"
-                              variant="outline"
-                              className="border-[#06B6D4] text-[#06B6D4] hover:bg-[#06B6D4] hover:text-[#0A0A0A] bg-transparent"
-                              asChild
-                            >
-                              <a href={study.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                                <Github className="w-4 h-4 mr-1" />
-                                Code
-                              </a>
-                            </Button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Project Content */}
-                <div className={`space-y-6 ${isEven ? "" : "lg:col-start-1 lg:row-start-1"}`}>
-                  <div className="flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-full bg-[${study.color}]/20 flex items-center justify-center`}>
-                      <Icon className={`w-6 h-6 text-[${study.color}]`} />
-                    </div>
-                    <div>
-                      <h3 className="text-3xl font-bold font-poppins">{study.title}</h3>
-                      <p className="text-[#f8f8f8]/70">{study.subtitle}</p>
-                    </div>
-                  </div>
-
-                <div className="space-y-6">
-                    <div>
-                      <h4 className="text-lg font-semibold font-poppins mb-2 text-[#3B82F6]">Problem</h4>
-                      <p className="text-[#F1F5F9]/80 leading-relaxed">{study.problem}</p>
-                    </div>
-
-                    <div>
-                      <h4 className="text-lg font-semibold font-poppins mb-2 text-[#06B6D4]">Approach</h4>
-                      <p className="text-[#F1F5F9]/80 leading-relaxed">{study.approach}</p>
-                    </div>
-
-                    <div>
-                      <h4 className="text-lg font-semibold font-poppins mb-2 text-[#8B5CF6]">Impact</h4>
-                      <p className="text-[#F1F5F9]/80 leading-relaxed">{study.impact}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {study.tech.map((tech) => (
-                      <Badge
-                        key={tech}
-                        variant="outline"
-                        className="border-[#1E293B] bg-[#1E293B]/50 text-[#F1F5F9]/80 hover:border-[#3B82F6]/50 hover:bg-[#3B82F6]/10"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-4 items-center">
-                    <Button
-                      className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-[#3B82F6]/40 flex items-center"
-                      asChild
-                    >
-                      <a href={study.demoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                        Try Live Demo
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </a>
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="border-[#06B6D4] text-[#06B6D4] hover:bg-[#06B6D4] hover:text-[#0A0A0A] px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 bg-transparent flex items-center"
-                      asChild
-                    >
-                      <a href={study.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                        <Github className="mr-2 h-4 w-4" />
-                        View Code
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-              </motion.div>
-            )
-          })}
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            )}
+            {study.githubUrl && study.githubUrl !== "#" && (
+              <a
+                href={study.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#8892B0] hover:text-[#64FFDA] transition-colors duration-200"
+                aria-label={`${study.title} GitHub`}
+              >
+                <Github className="w-4 h-4" />
+              </a>
+            )}
+          </div>
         </div>
+
+        {/* Divider */}
+        <div className="w-10 h-px bg-[#64FFDA] my-4" />
+
+        {/* Problem / Approach / Impact */}
+        <div className="space-y-3 mb-5">
+          {[
+            { label: "PROBLEM",  text: study.problem },
+            { label: "APPROACH", text: study.approach },
+            { label: "IMPACT",   text: study.impact },
+          ].map(({ label, text }) => (
+            <div key={label} className="flex gap-4 items-start">
+              <span className="shrink-0 w-20 text-[10px] font-jetbrains-mono tracking-[0.12em] text-[#64FFDA] pt-0.5">
+                {label}
+              </span>
+              <p className="text-[#8892B0] font-inter text-sm leading-relaxed">{text}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Tech pills */}
+        <div className="flex flex-wrap gap-1.5">
+          {study.tech.map((tech) => (
+            <span
+              key={tech}
+              className="px-2.5 py-1 border border-[#64FFDA]/25 bg-[#0F1117] text-[#64FFDA] text-xs font-jetbrains-mono rounded-[4px]"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
+export function FeaturedCaseStudies() {
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, amount: 0.05 })
+
+  return (
+    <section id="work" ref={sectionRef} className="py-16 lg:py-20">
+      {/* Section label */}
+      <motion.div
+        className="mb-10"
+        initial={{ opacity: 0, y: 16 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6 }}
+      >
+        <p className="text-xs font-jetbrains-mono tracking-widest text-[#64FFDA] uppercase mb-3">
+          03. Projects
+        </p>
+        <div className="w-12 h-px bg-[#64FFDA]" />
+      </motion.div>
+
+      {/* Stacked cards */}
+      <div className="space-y-5">
+        {caseStudies.map((study, index) => (
+          <CaseStudyCard key={study.id} study={study} index={index} />
+        ))}
       </div>
     </section>
   )

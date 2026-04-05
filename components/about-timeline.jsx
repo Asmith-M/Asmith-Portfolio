@@ -1,192 +1,176 @@
-import { useEffect, useRef, useState } from "react"
+import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Code, Lightbulb, Trophy, Rocket, GraduationCap } from "lucide-react"
-import { Button } from "../components/ui/button"
 
-const timelineEvents = [
+const chapters = [
   {
-    icon: GraduationCap,
-    title: "Started CS Journey",
-    description: "Began exploring programming with Python and discovered the power of automation and web development.",
+    number: "01",
     year: "2023",
-    color: "#10B981",
+    title: "Spawned into the World",
+    description:
+      "Started BSc CS in Mumbai. Discovered Python. Wrote my first script. It worked. I didn't know why. That bothered me enough to keep going.",
   },
   {
-    icon: Code,
-    title: "Full Stack Development",
-    description: "Built production-ready applications with React, Next.js, and FastAPI. Deployed scalable solutions like TrendWise and SmartChat with real user impact.",
+    number: "02",
     year: "2024",
-    color: "#3B82F6",
+    title: "Learned to Ship, Not Just Build",
+    description:
+      "Built TrendWise and ClauseIQ   full stack, deployed, real users. Realized that \"it runs on my machine\" is not a product.",
   },
   {
-    icon: Lightbulb,
-    title: "AI Integration & Modern APIs",
-    description: "Enhanced applications with AI capabilities using OpenAI, LangChain, and RESTful APIs. Focused on practical integration over theoretical ML.",
+    number: "03",
     year: "2024",
-    color: "#06B6D4",
+    title: "Went Deep on AI",
+    description:
+      "Built Noetic Vault   an offline RAG system to research hallucination reduction. Presented at Avishkar State Research Competition. Found out \"making LLMs not lie\" is a harder problem than it sounds.",
   },
   {
-    icon: Trophy,
-    title: "IBM Hackathon Participant",
-    description: "Created AccessMap - AI-enhanced accessibility mapping tool, recognized at IBM showcase.",
+    number: "04",
     year: "2025",
-    color: "#8B5CF6",
+    title: "IBM Hackathon   Top 30",
+    description:
+      "Built AccessMap in a two-person team. Accessibility navigation for 150+ pilot users across Mumbai. Ranked Top 30 of 300+ teams statewide. First time I presented to judges and didn't want to disappear.",
   },
   {
-    icon: Rocket,
-    title: "Chairperson – Technova (College Technical Festival)",
-    description: "Led a team of 70+ members to organize a college-wide technical fest with 1800+ participants.",
+    number: "05",
     year: "2025",
-    color: "#10B981",
+    title: "Led TechNova 2k25",
+    description:
+      "Chairperson of our college's flagship tech fest. 25+ person team, 20+ events, 1000+ attendees across 30+ colleges. Learned that coordinating humans is harder than debugging code.",
+  },
+  {
+    number: "06",
+    year: "Nov 2025 – Feb 2026",
+    title: "Founding Intern   NStechX India",
+    description:
+      "Got transported to fintech. No magic, just reconciliation systems and banking APIs. Built FRMS end-to-end   solo. Architected UPI, IMPS, ATM recon prototypes. Presented to actual banks. Left with a certificate and the realization that production systems are a different beast entirely.",
   },
 ]
 
+function ChapterEntry({ chapter, index }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.07 }}
+      className="py-8"
+    >
+      {/* Chapter header row */}
+      <div className="flex items-end justify-between gap-4 mb-3">
+        <div className="flex items-end gap-2">
+          <span className="text-[10px] font-jetbrains-mono tracking-[0.2em] text-[#495670] uppercase mb-1 shrink-0">
+            Chapter
+          </span>
+          <span
+            className="font-bold font-poppins leading-none text-[#64FFDA]"
+            style={{ fontSize: "52px", lineHeight: 1 }}
+          >
+            {chapter.number}
+          </span>
+        </div>
+        <span className="text-xs font-jetbrains-mono text-[#495670] shrink-0 mb-1">
+          {chapter.year}
+        </span>
+      </div>
+
+      {/* Gold separator */}
+      <div className="w-full h-px bg-[#64FFDA]/40 mb-4" />
+
+      {/* Title */}
+      <h3
+        className="font-semibold font-poppins text-[#CCD6F6] mb-2"
+        style={{ fontSize: "22px" }}
+      >
+        {chapter.title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-[#8892B0] font-inter text-sm leading-relaxed max-w-xl">
+        {chapter.description}
+      </p>
+    </motion.div>
+  )
+}
+
 export function AboutTimeline() {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const timelineRef = useRef(null)
-  const isInView = useInView(timelineRef, { once: false, amount: 0.3 })
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!timelineRef.current) return
-
-      const rect = timelineRef.current.getBoundingClientRect()
-      const scrollProgress = Math.max(
-        0,
-        Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)),
-      )
-      const newActiveIndex = Math.floor(scrollProgress * timelineEvents.length)
-      setActiveIndex(Math.min(newActiveIndex, timelineEvents.length - 1))
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, amount: 0.05 })
 
   const scrollToContact = () => {
-    const element = document.getElementById("contact")
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-[#0A0A0A] to-[#0F172A] relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 left-10 w-32 h-32 bg-[#3B82F6] rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-10 w-48 h-48 bg-[#8B5CF6] rounded-full blur-3xl" />
+    <section
+      id="journey"
+      ref={sectionRef}
+      className="py-16 lg:py-20 border-t border-[#233554]"
+    >
+      {/* Section header */}
+      <motion.div
+        className="mb-2"
+        initial={{ opacity: 0, y: 16 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-3xl font-bold font-poppins text-[#CCD6F6]">
+          The Lore
+        </h2>
+      </motion.div>
+      <motion.p
+        className="text-[#8892B0] font-inter text-sm mb-10 max-w-lg"
+        initial={{ opacity: 0, y: 12 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.1 }}
+      >
+        Every developer has an origin story. Here&apos;s mine   no dragons,
+        but plenty of APIs that worked yesterday.
+      </motion.p>
+
+      {/* Chapters */}
+      <div className="divide-y divide-[#233554]">
+        {chapters.map((chapter, index) => (
+          <ChapterEntry key={chapter.number} chapter={chapter} index={index} />
+        ))}
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-4xl lg:text-5xl font-bold font-poppins mb-6">My Journey</h2>
-          <p className="text-xl text-[#F1F5F9]/80 max-w-2xl mx-auto">
-            From curious beginner to versatile full-stack developer, here's how I've grown through real-world projects and technical challenges.
-          </p>
-        </motion.div>
-
-        <div ref={timelineRef} className="relative max-w-4xl mx-auto">
-          <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#3B82F6] via-[#06B6D4] to-[#8B5CF6] opacity-30" />
-
-          <motion.div
-            className="absolute left-8 top-0 w-1 bg-gradient-to-b from-[#3B82F6] via-[#06B6D4] to-[#8B5CF6]"
-            initial={{ height: 0 }}
-            animate={{
-              height: `${((activeIndex + 1) / timelineEvents.length) * 100}%`,
-            }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          />
-
-          <div className="space-y-12">
-            {timelineEvents.map((event, index) => {
-              const Icon = event.icon
-              const isActive = index <= activeIndex
-              const isCurrent = index === activeIndex
-
-              return (
-                <motion.div
-                  key={index}
-                  className="relative flex items-start gap-8"
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={isActive ? { opacity: 1, x: 0 } : { opacity: 0.3, x: -20 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  {/* Timeline dot */}
-                  <motion.div
-                    className={`relative z-10 w-16 h-16 rounded-full flex items-center justify-center border-4 transition-all duration-300 ${
-                      isActive
-                        ? "border-current shadow-lg"
-                        : "bg-[#1E293B] border-[#1E293B]"
-                    }`}
-                    style={isActive ? { backgroundColor: event.color, borderColor: event.color, boxShadow: `0 0 30px ${event.color}40` } : {}}
-                    animate={{
-                      scale: isCurrent ? 1.2 : 1,
-                      boxShadow: isCurrent ? `0 0 30px ${event.color}40` : "none",
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Icon className={`w-8 h-8 ${isActive ? "text-white" : "text-[#F1F5F9]/50"}`} />
-                  </motion.div>
-
-                  {/* Event content */}
-                  <motion.div
-                    className={`flex-1 bg-[#1E293B]/50 backdrop-blur-sm rounded-xl p-6 border transition-all duration-300 ${
-                      isActive ? "shadow-lg" : "border-[#1E293B]"
-                    }`}
-                    style={isActive ? { borderColor: `${event.color}40` } : {}}
-                    animate={{
-                      scale: isCurrent ? 1.05 : 1,
-                      y: isCurrent ? -5 : 0,
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-xl font-bold font-poppins">{event.title}</h3>
-                      <span
-                        className={`px-3 py-1 rounded-full text-sm font-medium ${
-                          isActive ? "" : "bg-[#1E293B] text-[#F1F5F9]/50"
-                        }`}
-                        style={isActive ? { backgroundColor: `${event.color}20`, color: event.color } : {}}
-                      >
-                        {event.year}
-                      </span>
-                    </div>
-                    <p className={`text-[#F1F5F9]/80 leading-relaxed ${isActive ? "opacity-100" : "opacity-50"}`}>
-                      {event.description}
-                    </p>
-                  </motion.div>
-                </motion.div>
-              )
-            })}
-          </div>
+      {/* What's Next */}
+      <motion.div
+        className="mt-2 pt-8 border-t border-[#233554]"
+        initial={{ opacity: 0, y: 24 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.4 }}
+      >
+        <div className="flex items-end gap-2 mb-3">
+          <span className="text-[10px] font-jetbrains-mono tracking-[0.2em] text-[#495670] uppercase mb-1">
+            Chapter
+          </span>
+          <span
+            className="font-bold font-poppins leading-none text-[#64FFDA]"
+            style={{ fontSize: "52px", lineHeight: 1 }}
+          >
+            ∞
+          </span>
         </div>
-
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+        <div className="w-full h-px bg-[#64FFDA]/40 mb-4" />
+        <h3 className="font-semibold font-poppins text-[#CCD6F6] mb-2" style={{ fontSize: "22px" }}>
+          What&apos;s Next
+        </h3>
+        <p className="text-[#8892B0] font-inter text-sm leading-relaxed max-w-xl mb-6">
+          Currently looking for full-time roles in AI engineering and fintech
+          backend. Heading into MCA next. Building things in the meantime. If
+          you&apos;re working on something hard and slightly chaotic, let&apos;s talk.
+        </p>
+        <button
+          onClick={scrollToContact}
+          className="inline-flex items-center justify-center bg-transparent border border-[#64FFDA] text-[#64FFDA] px-6 py-2.5 rounded-[4px] font-jetbrains-mono text-sm hover:bg-[#64FFDA]/10 transition-all duration-200"
         >
-          <div className="bg-gradient-to-r from-[#3B82F6]/10 to-[#06B6D4]/10 rounded-2xl p-8 border border-[#3B82F6]/20 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold font-poppins mb-4">Ready for the Next Chapter</h3>
-            <p className="text-[#F1F5F9]/80 mb-6">
-              I bring versatile full-stack development skills, modern web technologies expertise, and practical AI integration experience. Let's build something impactful together.
-            </p>
-            <Button
-              onClick={scrollToContact}
-              className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-[#3B82F6]/40"
-            >
-              Open to Freelance — Contact Me
-            </Button>
-            <p className="text-sm text-[#F1F5F9]/60 mt-3">I usually reply within 48 hours</p>
-          </div>
-        </motion.div>
-      </div>
+          Let&apos;s Talk
+        </button>
+      </motion.div>
     </section>
   )
 }

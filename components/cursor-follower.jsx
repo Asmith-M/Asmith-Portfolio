@@ -1,49 +1,27 @@
 import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
 
+/**
+ * Soft radial cursor glow   a full-viewport overlay whose gradient
+ * origin tracks the mouse pointer. Zero extra DOM nodes, GPU-composited.
+ */
 export function CursorFollower() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [isHovering, setIsHovering] = useState(false)
+  const [pos, setPos] = useState({ x: -9999, y: -9999 })
 
   useEffect(() => {
-    const updateMousePosition = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
+    const handleMouseMove = (e) => {
+      setPos({ x: e.clientX, y: e.clientY })
     }
-
-    const handleMouseEnter = () => setIsHovering(true)
-    const handleMouseLeave = () => setIsHovering(false)
-
-    const interactiveElements = document.querySelectorAll('button, a, [role="button"]')
-
-    interactiveElements.forEach((el) => {
-      el.addEventListener("mouseenter", handleMouseEnter)
-      el.addEventListener("mouseleave", handleMouseLeave)
-    })
-
-    window.addEventListener("mousemove", updateMousePosition)
-
-    return () => {
-      window.removeEventListener("mousemove", updateMousePosition)
-      interactiveElements.forEach((el) => {
-        el.removeEventListener("mouseenter", handleMouseEnter)
-        el.removeEventListener("mouseleave", handleMouseLeave)
-      })
-    }
+    window.addEventListener("mousemove", handleMouseMove)
+    return () => window.removeEventListener("mousemove", handleMouseMove)
   }, [])
 
   return (
-    <motion.div
-      className="fixed top-0 left-0 w-6 h-6 bg-[#3B82F6]/30 rounded-full pointer-events-none z-50 mix-blend-difference"
-      animate={{
-        x: mousePosition.x - 12,
-        y: mousePosition.y - 12,
-        scale: isHovering ? 1.5 : 1,
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 500,
-        damping: 28,
-        mass: 0.5,
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 z-30"
+      style={{
+        background: `radial-gradient(600px circle at ${pos.x}px ${pos.y}px, rgba(100,255,218,0.055), transparent 60%)`,
+        transition: "background 0.05s linear",
       }}
     />
   )

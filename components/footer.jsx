@@ -1,142 +1,60 @@
-"use client"
 import { motion } from "framer-motion"
-import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react"
-import { ShieldLogo } from "../components/ui/shield-logo"
+import { Github, Linkedin, Twitter, Mail } from "lucide-react"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    {
-      name: "GitHub",
-      icon: Github,
-      url: "https://github.com/Asmith-M",
-      color: "#F1F5F9",
-    },
-    {
-      name: "LinkedIn",
-      icon: Linkedin,
-      url: "https://www.linkedin.com/in/asmith-mahendrakar-955204311?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-      color: "#0077b5",
-    },
-    {
-      name: "Twitter",
-      icon: Twitter,
-      url: "https://x.com/asmith__M?t=pwsEIUGhsaJcGgp-EmokKQ&s=09",
-      color: "#1da1f2",
-    },
-    {
-      name: "Email",
-      icon: Mail,
-      url: "mailto:asmithmahendrakar@gmail.com",
-      color: "#3B82F6",
-    },
-  ]
-
-  const quickLinks = [
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Contact", href: "#contact" },
+    { name: "GitHub",   icon: Github,   url: "https://github.com/Asmith-M" },
+    { name: "LinkedIn", icon: Linkedin, url: "https://www.linkedin.com/in/asmith-mahendrakar-955204311" },
+    { name: "Twitter",  icon: Twitter,  url: "https://x.com/asmith__M?t=pwsEIUGhsaJcGgp-EmokKQ&s=09" },
+    { name: "Email",    icon: Mail,     url: "mailto:asmithmahendrakar@gmail.com" },
   ]
 
   return (
-    <footer className="bg-[#0F172A] border-t border-[#1E293B] relative overflow-hidden">
-   
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-1/4 w-48 h-48 bg-[#3B82F6] rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-[#06B6D4] rounded-full blur-3xl" />
-      </div>
-
-      <div className="container mx-auto px-6 py-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-     
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <ShieldLogo className="w-8 h-8" />
-              <span className="text-2xl font-bold font-poppins">Asmith Mahendrakar</span>
-            </div>
-            <p className="text-[#F1F5F9]/70 leading-relaxed max-w-md">
-              Freelance developer specializing in AI-powered applications and modern web solutions. Turning complex
-              problems into elegant, user-friendly experiences.
+    <footer className="border-t border-[#233554] bg-[#0F1117]">
+      <div className="container mx-auto px-6 py-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          {/* Brand */}
+          <div>
+            <span className="font-bold font-poppins text-[#CCD6F6] text-base">
+              Asmith Mahendrakar
+            </span>
+            <p className="text-[#495670] font-jetbrains-mono text-xs mt-0.5">
+              AI systems developer. Fintech background. Mumbai.
             </p>
-            <div className="flex gap-4 mt-6">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon
-                return (
-                  <motion.a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-[#0A0A0A]/50 backdrop-blur-sm rounded-full flex items-center justify-center border border-[#1E293B] hover:border-[#3B82F6]/30 transition-all duration-300 group"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <Icon className="w-4 h-4 text-[#F1F5F9]/70 group-hover:text-[#3B82F6] transition-colors" />
-                  </motion.a>
-                )
-              })}
-            </div>
           </div>
 
-
-          <div>
-            <h3 className="text-lg font-semibold font-poppins mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              {quickLinks.map((link, index) => (
-                <motion.li
-                  key={link.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                >
-                  <a
-                    href={link.href}
-                    className="text-[#F1F5F9]/70 hover:text-[#3B82F6] transition-colors duration-200 hover:translate-x-1 inline-block"
-                  >
-                    {link.name}
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
-          </div>
-
-         
-          <div>
-            <h3 className="text-lg font-semibold font-poppins mb-4">Services</h3>
-            <ul className="space-y-2">
-              {["Web Development", "AI Integration", "API Development", "Consulting"].map((service, index) => (
-                <motion.li
-                  key={service}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                >
-                  <span className="text-[#f8f8f8]/70">{service}</span>
-                </motion.li>
-              ))}
-            </ul>
+          {/* Social */}
+          <div className="flex items-center gap-3">
+            {socialLinks.map(({ name, icon: Icon, url }, i) => (
+              <motion.a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={name}
+                className="w-8 h-8 bg-[#161B27] border border-[#233554] rounded-[4px] flex items-center justify-center text-[#495670] hover:border-[#64FFDA]/50 hover:text-[#64FFDA] transition-all duration-200"
+                whileHover={{ y: -2 }}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: i * 0.06 }}
+              >
+                <Icon className="w-3.5 h-3.5" />
+              </motion.a>
+            ))}
           </div>
         </div>
 
-      
-        <motion.div
-          className="pt-8 border-t border-[#1E293B] flex flex-col md:flex-row justify-between items-center gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <div className="flex items-center gap-2 text-[#f8f8f8]/60">
-            <span>© {currentYear} Asmith Mahendrakar. Made with</span>
-            <Heart className="w-4 h-4 text-[#3B82F6] fill-current" />
-            <span>and lots of coffee.</span>
-          </div>
-
-         
-        </motion.div>
+        {/* Bottom */}
+        <div className="mt-6 pt-6 border-t border-[#233554] flex flex-col md:flex-row justify-between items-center gap-2">
+          <span className="text-[#495670] font-jetbrains-mono text-xs">
+            © {currentYear} Asmith Mahendrakar
+          </span>
+          <span className="text-[#495670] font-jetbrains-mono text-xs text-center">
+            Made with FastAPI, React, and an unreasonable amount of debugging.
+          </span>
+        </div>
       </div>
     </footer>
   )

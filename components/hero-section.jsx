@@ -1,102 +1,124 @@
 import { motion } from "framer-motion"
-import { Button } from "../components/ui/button"
-import { ArrowDown, Download } from "lucide-react"
-import { InteractiveDemo } from "../components/interactive-demo"
+import { Download } from "lucide-react"
 
 export function HeroSection() {
   const scrollToWork = () => {
     const element = document.getElementById("work")
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
+    if (element) element.scrollIntoView({ behavior: "smooth" })
   }
 
+  const stats = [
+    "5 Projects Shipped",
+    "Top 30 IBM Hackathon",
+    "4 Months Fintech",
+  ]
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-20">
-      {/* Background with parallax effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A] via-[#0F172A] to-[#1E293B]">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-[#3B82F6]/30 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#8B5CF6]/30 rounded-full blur-3xl animate-pulse delay-1000" />
-        </div>
-        {/* Subtle grain texture */}
-        <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml,%3Csvg width=60 height=60 viewBox=0 0 60 60 xmlns=http://www.w3.org/2000/svg%3E%3Cg fill=none fillRule=evenodd%3E%3Cg fill=%23ffffff fillOpacity=0.4%3E%3Ccircle cx=7 cy=7 r=1/%3E%3Ccircle cx=27 cy=7 r=1/%3E%3Ccircle cx=47 cy=7 r=1/%3E%3Ccircle cx=7 cy=27 r=1/%3E%3Ccircle cx=27 cy=27 r=1/%3E%3Ccircle cx=47 cy=27 r=1/%3E%3Ccircle cx=7 cy=47 r=1/%3E%3Ccircle cx=27 cy=47 r=1/%3E%3Ccircle cx=47 cy=47 r=1/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-      </div>
+    <section className="relative min-h-screen flex items-center overflow-hidden px-6 pt-24 pb-16 bg-[#0D0D0D]">
+      {/* Subtle radial glow   warm, not blue */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 50% at 20% 60%, rgba(232,197,71,0.06) 0%, transparent 70%)",
+        }}
+      />
 
-      <div className="container mx-auto relative z-10 max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Hero content */}
-          <div className="space-y-8">
-            <motion.h1
-              className="text-4xl lg:text-6xl font-bold font-poppins leading-tight"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              I create{" "}
-              <span className="text-[#3B82F6] drop-shadow-[0_4px_12px_rgba(59,130,246,0.4)]">
-                intelligent full-stack applications
-              </span>{" "}
-              that solve real problems
-            </motion.h1>
+      <div className="container mx-auto relative z-10 max-w-5xl">
+        {/* Small gold monospace tag */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-6"
+        >
+          <span className="font-jetbrains-mono text-sm text-[#E8C547] tracking-wide">
+            // Software Development Intern → Building Something Real
+          </span>
+        </motion.div>
 
-            <motion.p
-              className="text-lg lg:text-xl text-[#F1F5F9]/80 font-inter leading-relaxed"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              Full-stack developer specializing in building{" "}
-              <span className="text-[#06B6D4] font-semibold drop-shadow-[0_2px_8px_rgba(6,182,212,0.4)]">
-                intuitive, scalable, and AI-powered
-              </span>{" "}
-              solutions using modern web technologies
-            </motion.p>
+        {/* Main headline */}
+        <motion.h1
+          className="text-5xl md:text-6xl lg:text-7xl font-bold font-poppins text-[#F5F5F0] leading-tight mb-4"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          I didn&apos;t choose the AI life.
+        </motion.h1>
 
-            <motion.p
-              className="text-base lg:text-lg text-[#10B981] font-semibold drop-shadow-[0_2px_8px_rgba(16,185,129,0.4)]"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              Available for freelance & internships
-            </motion.p>
+        {/* Subheading */}
+        <motion.p
+          className="text-2xl md:text-3xl font-poppins text-[#9A9A8E] mb-8 leading-snug"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.35 }}
+        >
+          The AI life compiled successfully.
+        </motion.p>
 
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <Button
-                onClick={scrollToWork}
-                className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-[#3B82F6]/40"
-              >
-                See My Work
-                <ArrowDown className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                variant="outline"
-                className="border-[#06B6D4] text-[#06B6D4] hover:bg-[#06B6D4] hover:text-[#0A0A0A] px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105 bg-transparent"
-                asChild
-              >
-                <a href="/Resume-Public.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                  <Download className="mr-2 h-5 w-5" />
-                  Download Resume
-                </a>
-              </Button>
-            </motion.div>
-          </div>
+        {/* Body paragraph */}
+        <motion.p
+          className="text-lg text-[#F5F5F0]/80 font-inter leading-relaxed max-w-[600px] mb-10"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
+          I build systems that work in production   RAG pipelines, fraud
+          detection engines, federated learning security. Based in Mumbai.
+          Currently looking for someone interesting to build something
+          chaotic with.
+        </motion.p>
 
-          {/* Right side - Interactive Demo */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+        {/* CTA Buttons */}
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 mb-12"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.65 }}
+        >
+          <button
+            onClick={scrollToWork}
+            className="inline-flex items-center justify-center bg-[#E8C547] text-[#0D0D0D] px-8 py-3 rounded-[4px] font-semibold font-poppins text-base transition-all duration-200 hover:bg-[#C8A832]"
           >
-            <InteractiveDemo />
-          </motion.div>
-        </div>
+            See the Work
+          </button>
+          <a
+            href="/Resume-Public.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center border border-[#E8C547] text-[#E8C547] px-8 py-3 rounded-[4px] font-semibold font-poppins text-base transition-all duration-200 hover:bg-[#E8C547]/10"
+          >
+            <Download className="mr-2 h-4 w-4" />
+            Download Resume
+          </a>
+        </motion.div>
+
+        {/* Gold separator line */}
+        <motion.div
+          className="w-full h-px bg-[#E8C547]/30 mb-8"
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          style={{ transformOrigin: "left" }}
+        />
+
+        {/* Stat pills */}
+        <motion.div
+          className="flex flex-wrap gap-3"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
+        >
+          {stats.map((stat) => (
+            <span
+              key={stat}
+              className="px-4 py-2 border border-[#2A2A2A] bg-[#141414] text-[#9A9A8E] text-sm font-inter rounded-[4px] tracking-wide"
+            >
+              {stat}
+            </span>
+          ))}
+        </motion.div>
       </div>
     </section>
   )
