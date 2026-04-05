@@ -33,7 +33,7 @@ export function HeroSection() {
           className="mb-6"
         >
           <span className="font-jetbrains-mono text-sm text-[#E8C547] tracking-wide">
-            // Software Development Intern → Building Something Real
+            // Software Engineer Intern → Building Something Real
           </span>
         </motion.div>
 

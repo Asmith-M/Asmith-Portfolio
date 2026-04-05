@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion"
 
 const EXPERIENCE = [
   {
-    role: "Software Development Intern",
+    role: "Software Engineer Intern",
     company: "NStechX India",
     period: "Nov 2025 – Feb 2026 · Remote",
     bullets: [
