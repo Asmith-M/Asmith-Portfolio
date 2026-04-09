@@ -42,5 +42,5 @@ The portfolio is deployed on Vercel, with automatic deployments triggered on eve
 ##  Contact
 
 - **Email:** asmithmahendrakar@gmail.com  
-- **LinkedIn:** [LinkedIn Profile](https://linkedin.com/in/yourprofile)  
-- **Portfolio:** [Live Site](https://yourportfolio.com)
+- **LinkedIn:** [LinkedIn Profile](https://www.linkedin.com/in/asmith-mahendrakar-955204311/)  
+- **Portfolio:** [Live Site](https://asmith-portfolio.vercel.app/)
